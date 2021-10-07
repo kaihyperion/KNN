@@ -4,16 +4,7 @@ import os
 
 
 def load_json_data(json_path):
-    """
-    Loads data from JSON files kept in data/. Implemented this for you, you are
-    welcome.
 
-    Args:
-        json_path (str): path to json file containing the data (e.g. 'data/blobs.json')
-    Returns:
-        features (np.ndarray): numpy array containing the x values
-        targets (np.ndarray): numpy array containing the y values in the range -1, 1.
-    """
 
     with open(json_path, 'rb') as f:
         data = json.load(f)
@@ -24,17 +15,7 @@ def load_json_data(json_path):
 
 
 if __name__ == "__main__":
-    """
-    Running this from the command line in this directory will tell you the shapes of 
-    each dataset, and also visualize the datasets for you.
-
-        $ python load_json_data.py 
-        (110, 2) (110,) ../data/parallel_lines.json
-        (127, 2) (127,) ../data/blobs.json
-        (68, 2) (68,) ../data/crossing.json
-        (131, 2) (131,) ../data/circles.json
-
-    """
+ 
     try:
         import matplotlib.pyplot as plt
     except:

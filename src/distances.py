@@ -1,31 +1,29 @@
 import numpy as np 
 
 def euclidean_distances(X, Y):
-    """Compute pairwise Euclidean distance between the rows of two matrices X (shape MxK) 
-    and Y (shape NxK). The output of this function is a matrix of shape MxN containing
-    the Euclidean distance between two rows.
-    
-    Arguments:
-        X {np.ndarray} -- First matrix, containing M examples with K features each.
-        Y {np.ndarray} -- Second matrix, containing N examples with K features each.
+    euclidean = np.zeros((X.shape[0], Y.shape[0]))
+    #print(X.shape[0])
+    x_ind = 0
+    for row_x in X:
+        y_ind = 0
+        for row_y in Y:
+            euclidean[x_ind,y_ind] = np.sqrt((np.square(row_x - row_y)).sum())
+            y_ind +=1
+        x_ind += 1
 
-    Returns:
-        D {np.ndarray}: MxN matrix with Euclidean distances between rows of X and rows of Y.
-    """
-    raise NotImplementedError()
+    return euclidean
 
 
 def manhattan_distances(X, Y):
-    """Compute pairwise Manhattan distance between the rows of two matrices X (shape MxK) 
-    and Y (shape NxK). The output of this function is a matrix of shape MxN containing
-    the Manhattan distance between two rows.
-    
-    Arguments:
-        X {np.ndarray} -- First matrix, containing M examples with K features each.
-        Y {np.ndarray} -- Second matrix, containing N examples with K features each.
+    manhattan = np.zeros((X.shape[0], Y.shape[0]))
+    x_ind = 0
+    for row_x in X:
+        y_ind = 0
+        for row_y in Y:
+            manhattan[x_ind,y_ind] = (np.absolute(row_x - row_y)).sum()
+            y_ind += 1
+        x_ind += 1
 
-    Returns:
-        D {np.ndarray}: MxN matrix with Manhattan distances between rows of X and rows of Y.
-    """
-    raise NotImplementedError()
+    return manhattan
+
 
